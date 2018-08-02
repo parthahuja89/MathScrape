@@ -1,9 +1,0 @@
-{
-  "name": "echo",
-  "description": "Chrome native messaging API ",
-  "path": "/Users/parthahuja/PycharmProjects/BSproject/host ",
-  "type": "stdio",
-  "allowed_origins": [
-    "chrome-extension://dnlidimacgjlhhanhpkbgbkogcdafenb"
-  ]
-}

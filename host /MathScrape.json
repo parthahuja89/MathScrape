@@ -1,0 +1,7 @@
+{
+	"name": "MathScrape",
+	"description": "Open with Photoshop",
+	"path": "HOST_PATH",
+	"type": "stdio",
+	"allowed_origins": ["chrome-extension://hpjdekdojcjpiknbeaeomedjehfkgffj/"]
+}
