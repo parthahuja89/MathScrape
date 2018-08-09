@@ -12,12 +12,12 @@ driver.get("https://www.mathjax.org/#samples")
 wait = WebDriverWait(driver, 10)
 wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#samples > h4:nth-child(4)")))
 
-# get the page source
+
 page_source = driver.page_source
 
 driver.close()
 
-# parse the HTML
+
 soup = BeautifulSoup(page_source, "html.parser")
 script = soup.findAll("script")
 print(script)
@@ -28,3 +28,6 @@ print(script)
 
 for math in soup.find('script', attrs={'type':'math/tex; mode=display'}):
     print(math)
+
+
+#adding pandas?
