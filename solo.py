@@ -5,17 +5,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-driver = webdriver.Chrome()
-driver.get("https://www.mathjax.org/#samples")
+driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+driver.get("http://people.oregonstate.edu/~dimcoviz/var/math/mathjax_ex.html")
 
 #loading for a css selector
 wait = WebDriverWait(driver, 10)
-wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#samples > h4:nth-child(4)")))
+wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#MathJax-Element-1-Frame")))
 
 
 page_source = driver.page_source
 
-driver.close()
+driver.quit()
+
 
 
 soup = BeautifulSoup(page_source, "html.parser")
@@ -29,5 +30,5 @@ print(script)
 for math in soup.find('script', attrs={'type':'math/tex; mode=display'}):
     print(math)
 
-
-#adding pandas?
+for normal in soup.find('script', attrs = {'id': 'MathJax-Element-a'}):
+    print(normal)
