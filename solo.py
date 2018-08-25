@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = webdriver.Chrome('/usr/local/bin/chromedriver')
-driver.get("http://people.oregonstate.edu/~dimcoviz/var/math/mathjax_ex.html")
+driver.get("https://www.mathjax.org/#samples")
 
 #loading for a css selector
 wait = WebDriverWait(driver, 10)
@@ -28,7 +28,12 @@ print(script)
 
 
 for math in soup.find('script', attrs={'type':'math/tex; mode=display'}):
-    print(math)
+    print('ELEMENT FOUND' + math)
 
 for normal in soup.find('script', attrs = {'id': 'MathJax-Element-a'}):
-    print(normal)
+    print('ELEMENT FOUND' +normal)
+
+for elements in soup.find('script', attrs = {'id': 'MathJax-Element-1'}):
+    print('ELEMENT FOUND' + elements)
+
+#for multiple elements?
