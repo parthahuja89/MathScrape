@@ -22,7 +22,7 @@ dictionary.append('/')
 dictionary.append('-')
 dictionary.append('sqrt')
 
-
+#
 def cleaner(expression):
 
     ex = list(expression)
