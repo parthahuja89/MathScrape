@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+import solo
 from flask_cors import CORS
 
 
@@ -15,6 +16,11 @@ def ping_pong():
      if request.method == 'POST':
          response = request.get_json()
          url = response.get('url')
+         soup =solo.setup(url)
+         solo.scrape_a(soup)
+         solo.scrape_1(soup)
+         solo.scrape_ord(soup)
+         print(solo.getValues())
          print(url)
 
 

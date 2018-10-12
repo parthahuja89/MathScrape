@@ -8,19 +8,21 @@
           style="max-width: 20rem;"
           class="mb-2">
     <p class="card-text">
-      Enter your URL 
+     mathjax webscraping
       </p>
      
-     <b-form-input v-model="url"
+     <b-form-input v-if= "active"
+                  v-model="url_native"
                   type="text"
-                  placeholder="Enter your name"></b-form-input>
-    <p>Value: {{ url }}</p>
+                  placeholder="Enter the url"></b-form-input>
+    <p>Value: {{ url_native }}</p>
     
     <b-button  variant="primary" @click ="sendURL">Go somewhere</b-button>
 
   </b-card>
 
-  <b-form-checkbox id="checkbox1"
+  <b-form-checkbox   v-if= "active"
+                     id="checkbox1"
                      v-model="status"
                      value="accepted"
                      unchecked-value="not_accepted">
@@ -43,18 +45,20 @@ export default {
   data() {
      return{
        status: 'not_accepted',
-       url: '' ,
-       api: 'http://localhost:5000/'
+       url_native: '' ,
+       api: 'http://localhost:5000/',
+       active: true, 
      };
   },
   methods: {
     sendURL(event){
+      //PROMISING 
       console.log('trying to connect to server');
       const path = this.api+ 'send_url'
       if(this.status == 'accepted'){
          //make axios promise 
          axios.post(path, {
-           url: 'google.com',    
+           url: this.url_native,    
          })
          .then(function(response){
            console.log(response);
@@ -62,10 +66,18 @@ export default {
          .catch(function(error){
            console.log(error);
            })
-      }else{
+      }else{ //send warning 
         console.log('accept the service')
       }
-    }
+       //route with recieved data 
+    
+      /*
+       * routing to scraping page 
+       */
+       
+  
+     
+    }  
   },
  };
 </script>  
