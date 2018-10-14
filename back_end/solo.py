@@ -8,6 +8,7 @@ values= []
 
 def setup(url):
     driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
     driver.get(url)
 
     # loading for a css selector
@@ -49,6 +50,7 @@ def scrape_1(soup):
 def scrape_ord(soup):
     return_value = False
     found = soup.find('script', attrs = {'id': 'MathJax-Element-1'});
+
     if (found is not None):
         return_value = True
         for math in found:
@@ -61,9 +63,12 @@ def scrape_ord(soup):
 
 def getValues():
     return values;
+
 if __name__ == "__main__":
-    soup = setup()
+    soup = setup('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference');
+
+    # running scrapers
     scrape_a(soup)
     scrape_1(soup)
     scrape_ord(soup)
-    print(values)
+

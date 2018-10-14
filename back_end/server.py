@@ -17,6 +17,7 @@ def ping_pong():
          response = request.get_json()
          url = response.get('url')
          soup =solo.setup(url)
+         #running scrapers 
          solo.scrape_a(soup)
          solo.scrape_1(soup)
          solo.scrape_ord(soup)
@@ -24,7 +25,7 @@ def ping_pong():
          print(url)
 
 
-     return jsonify('url received')
+     return jsonify(solo.getValues())
 
 
 if __name__ == '__main__':

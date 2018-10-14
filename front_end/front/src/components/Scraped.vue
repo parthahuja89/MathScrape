@@ -1,3 +1,5 @@
+<!-- Copyright 2018, Parth Ahuja, All rights reserved --> 
+
 <template>
     <div> 
    <b-card title="Math Scrape"
@@ -12,13 +14,29 @@
      
      <div id='scraped_text'> 
 
-         Scraped equation: 
+         Scraped equation:
      </div>
 
      <div  id = 'sympy'> 
-         
-         
-         </div>  
+     <!-- Handling sympy requests -->
+      
+     </div>  
   </b-card>
   </div>
 </template>
+<script>
+export default {
+data(){
+    return{
+     loading: true, 
+     eqs: [],
+     equation: '' 
+    }
+},
+created: () => {
+       console.log('welcome to scraping')
+       console.log('curren')
+       console.log(this.eqs)
+    } 
+}
+</script> 

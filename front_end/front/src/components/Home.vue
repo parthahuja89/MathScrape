@@ -1,6 +1,9 @@
+<!-- Copyright 2018, Parth Ahuja, All rights reserved --> 
+
 /* eslint-disable */
 <template> 
 <div>  
+  <!-- Layout -->   
    <b-card title="Math Scrape"
           img-alt="Image"
           img-top
@@ -18,7 +21,7 @@
     <p>Value: {{ url_native }}</p>
     
     <b-button  variant="primary" @click ="sendURL">Go somewhere</b-button>
-
+ <b-button  variant="primary" @click ="debug"> debugging </b-button>
   </b-card>
 
   <b-form-checkbox   v-if= "active"
@@ -48,37 +51,75 @@ export default {
        url_native: '' ,
        api: 'http://localhost:5000/',
        active: true, 
+       server_response: [], 
+       forwarding: false 
      };
   },
+   created() {
+   this.$Progress.start()
+  },
+  mounted(){
+    this.$Progress.finish()
+   },
   methods: {
     sendURL(event){
+      
       //PROMISING 
       console.log('trying to connect to server');
       const path = this.api+ 'send_url'
+
       if(this.status == 'accepted'){
-         //make axios promise 
-         axios.post(path, {
-           url: this.url_native,    
-         })
-         .then(function(response){
+         //make axios promise
+          const instance = axios.create({
+           baseURL: this.api
+
+          });
+          //pre-request 
+          instance.interceptors.response.use(response => {
+          this.$Progress.finish()
            console.log(response);
-         })
+           this.$router.push({
+                 path: '/scraped',
+                 params: { eqs: response }
+                 }); 
+             return response
+            })
+
+          //post request 
+          instance.interceptors.request.use(config => {
+          this.$Progress.start()
+          return config
+          })
+
+          
+
+          //requests 
+          instance.post( '/send_url', {
+           url: this.url_native,    
+           })
+           .then(function(response){
+               
+           })
          .catch(function(error){
            console.log(error);
            })
+          /*
+          * route with data 
+           */         
       }else{ //send warning 
-        console.log('accept the service')
+        //To proceed accept Terms and Service. 
+
       }
-       //route with recieved data 
-    
-      /*
-       * routing to scraping page 
-       */
-       
-  
      
-    }  
+    }, 
+    debug(){
+      this.$router.push({
+                 path: '/scraped',
+        
+                 }); 
+    }
   },
+
  };
 </script>  
 
