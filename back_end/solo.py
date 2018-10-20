@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 values= []
 
 def setup(url):
-    # local_driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    
     #using headless browser for heroku 
     driver = webdriver.PhantomJS()
     url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'

@@ -60,7 +60,7 @@ export default {
       
       //PROMISING 
       console.log('trying to connect to server');
-      const path = this.api+ 'send_url'
+      const path = this.api
 
       if(this.status == 'accepted'){
          //make axios promise
