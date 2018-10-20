@@ -47,7 +47,6 @@ import axios from 'axios';
 export default {
   data() {
      return{
-       status: 'not_accepted',
        url_native: '' ,
        api: 'https://mathscrape.herokuapp.com/',
        active: true, 
