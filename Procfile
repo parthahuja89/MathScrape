@@ -1,3 +1,2 @@
-release: python back_end/server.py migrate
-web: gunicorn gettingstarted.wsgi --log-file -
+web: gunicorn --chdir back_end server:app 
 heroku ps:scale web=1

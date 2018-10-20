@@ -49,7 +49,7 @@ export default {
      return{
        status: 'not_accepted',
        url_native: '' ,
-       api: 'http://mathscrape.heroku.com',
+       api: 'https://mathscrape.herokuapp.com/',
        active: true, 
        server_response: [], 
        forwarding: false 
