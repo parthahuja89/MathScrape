@@ -9,7 +9,9 @@ app.config.from_object(__name__)
            
 CORS(app) #different origins 
 
-
+@app.route('/', methods = ['GET'])
+def front():
+    print('Hello Wold!')
 #reqquests 
 @app.route('/send_url', methods=['POST', 'GET', 'OPTIONS'])
 def ping_pong():
