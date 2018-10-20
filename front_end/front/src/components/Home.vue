@@ -55,12 +55,6 @@ export default {
        forwarding: false 
      };
   },
-   created() {
-   this.$Progress.start()
-  },
-  mounted(){
-    this.$Progress.finish()
-   },
   methods: {
     sendURL(event){
       
