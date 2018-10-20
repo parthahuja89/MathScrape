@@ -11,9 +11,9 @@ CORS(app) #different origins
 
 
 #reqquests 
-@app.route('/send_url', methods=['POST', 'GET'])
+@app.route('/send_url', methods=['POST', 'GET', 'OPTIONS'])
 def ping_pong():
-     if request.method == 'POST':
+     if request.method == 'POST, OPTIONS':
          response = request.get_json()
          url = response.get('url')
          soup =solo.setup(url)
