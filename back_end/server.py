@@ -15,10 +15,10 @@ def front():
     return 'yaya'
 
 #reqquests 
-@app.route('/send_url', methods=['POST', 'GET'])
+@app.route('/send_url', methods=['POST', 'GET', 'OPTIONS'])
 @cross_origin()
 def ping_pong():
-     if request.method == 'POST':
+     if request.method == 'POST, OPTIONS':
          response = request.get_json()
          url = response.get('url')
          soup =scraper.setup(url)
