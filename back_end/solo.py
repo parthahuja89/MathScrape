@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 values= []
 
 def setup(url):
+    #editing this file 
     driver = webdriver.Chrome('/app/.apt/usr/bin/google-chrome')
     url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
     driver.get(url)
