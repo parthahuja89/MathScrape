@@ -10,22 +10,21 @@ app.config.from_object(__name__)
 CORS(app) #different origins 
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.after_request # blueprint can also be app~~
+@app.after_request
 def after_request(response):
-    header = response.headers
-    header['Access-Control-Allow-Origin'] = '*'
-    return response
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+  return response
 
 
 @app.route('/', methods = ['GET'])
-@cross_origin()
 def front():
     print('Hello Wold!')
     return 'yaya'
 
 #reqquests 
-@app.route('/send_url', methods=['POST', 'GET', 'OPTIONS'])
-@cross_origin()
+@app.route('/send_url', methods=['POST', 'OPTIONS'])
 def ping_pong():
      if request.method == 'POST':
          response = request.get_json()
