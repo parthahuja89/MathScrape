@@ -88,7 +88,7 @@ export default {
 
 
           //requests
-          instance.post( '/send_url', {
+          instance.get( '/', {
            url: this.url_native,
            })
            .then(function(response){
