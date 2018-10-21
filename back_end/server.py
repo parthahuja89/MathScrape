@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 import solo
+import os 
 from flask_cors import CORS, cross_origin
 
 
