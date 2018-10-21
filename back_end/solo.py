@@ -9,12 +9,12 @@ from selenium.webdriver.support import expected_conditions as EC
 values= []
 
 def setup(url):
+    pass
+    print(url)
     chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
     opts = ChromeOptions()
     opts.binary_location = chrome_bin
     driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
-  
-    url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
     driver.get(url)
 
     # loading for a css selector
@@ -26,6 +26,7 @@ def setup(url):
     driver.quit()
 
     soup = BeautifulSoup(page_source, "html.parser")
+    print(soup)
     return soup;
 
 #scraping for math script

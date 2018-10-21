@@ -30,6 +30,7 @@ def ping_pong():
      if request.method == 'POST':
          response = request.get_json()
          url = response.get('url')
+         print(url)
          soup =solo.setup(url)
          #running scrapers 
          solo.scrape_a(soup)
