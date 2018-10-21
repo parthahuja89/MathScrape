@@ -26,11 +26,11 @@ def ping_pong():
          scraper.scrape_a(soup)
          scraper.scrape_1(soup)
          scraper.scrape_ord(soup)
-         print(solo.getValues())
+         print(scraper.getValues())
          print(url)
 
 
-     return jsonify(solo.getValues())
+     return jsonify(scraper.getValues())
 
 
 if __name__ == '__main__':
