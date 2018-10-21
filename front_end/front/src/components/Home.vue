@@ -1,9 +1,9 @@
-<!-- Copyright 2018, Parth Ahuja, All rights reserved --> 
+<!-- Copyright 2018, Parth Ahuja, All rights reserved -->
 
 /* eslint-disable */
-<template> 
-<div>  
-  <!-- Layout -->   
+<template>
+<div>
+  <!-- Layout -->
    <b-card title="Math Scrape"
           img-alt="Image"
           img-top
@@ -13,13 +13,13 @@
     <p class="card-text">
      mathjax webscraping
       </p>
-     
+
      <b-form-input v-if= "active"
                   v-model="url_native"
                   type="text"
                   placeholder="Enter the url"></b-form-input>
     <p>Value: {{ url_native }}</p>
-    
+
     <b-button  variant="primary" @click ="sendURL">Go somewhere</b-button>
  <b-button  variant="primary" @click ="debug"> debugging </b-button>
   </b-card>
@@ -32,17 +32,17 @@
       I accept the terms and use
     </b-form-checkbox>
     <div>State: <strong>
-     
+
       {{status}}
-       
+
      </strong></div>
 
 
   </div>
-  
+
 </template>
 
-<script> 
+<script>
 import axios from 'axios';
 export default {
   data() {
@@ -50,15 +50,15 @@ export default {
        status: 'not_accepted',
        url_native: '' ,
        api: 'https://mathscrape.herokuapp.com',
-       active: true, 
-       server_response: [], 
-       forwarding: false 
+       active: true,
+       server_response: [],
+       forwarding: false
      };
   },
   methods: {
     sendURL(event){
-      
-      //PROMISING 
+
+      //PROMISING
       console.log('trying to connect to server');
       const path = this.api
 
@@ -68,52 +68,51 @@ export default {
            baseURL: this.api
 
           });
-          //pre-request 
+          //pre-request
           instance.interceptors.response.use(response => {
           this.$Progress.finish()
            console.log(response);
            this.$router.push({
                  path: '/scraped',
                  params: { eqs: response }
-                 }); 
+                 });
              return response
             })
 
-          //post request 
+          //post request
           instance.interceptors.request.use(config => {
           this.$Progress.start()
           return config
           })
 
-          
 
-          //requests 
-          instance.post( '/send_url', {
-           url: this.url_native,    
+
+          //requests
+          instance.get( '/', {
+           url: this.url_native,
            })
            .then(function(response){
-               
+
            })
          .catch(function(error){
            console.log(error);
            })
           /*
-          * route with data 
-           */         
-      }else{ //send warning 
-        //To proceed accept Terms and Service. 
+          * route with data
+           */
+      }else{ //send warning
+        //To proceed accept Terms and Service.
 
       }
-     
-    }, 
+
+    },
     debug(){
       this.$router.push({
                  path: '/scraped',
-        
-                 }); 
+
+                 });
     }
   },
 
  };
-</script>  
-
+</script>

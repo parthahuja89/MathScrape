@@ -7,8 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 values= []
 
 def setup(url):
-    
-    #using headless browser for heroku 
+
+    #using headless browser for heroku
     driver = webdriver.PhantomJS()
     url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
     driver.get(url)
@@ -65,12 +65,3 @@ def scrape_ord(soup):
 
 def getValues():
     return values;
-
-if __name__ == "__main__":
-    soup = setup('https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference');
-
-    # running scrapers
-    scrape_a(soup)
-    scrape_1(soup)
-    scrape_ord(soup)
-
