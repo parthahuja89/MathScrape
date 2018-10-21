@@ -10,13 +10,13 @@ app.config.from_object(__name__)
 CORS(app) #different origins 
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@blueprint.after_request # blueprint can also be app~~
+@app.after_request # blueprint can also be app~~
 def after_request(response):
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
     return response
 
-    
+
 @app.route('/', methods = ['GET'])
 @cross_origin()
 def front():
