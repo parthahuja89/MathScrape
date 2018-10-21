@@ -9,17 +9,10 @@ from selenium.webdriver.support import expected_conditions as EC
 values= []
 
 def setup(url):
-    chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
-
-    opts = ChromeOptions()
-
-    opts.binary_location = chrome_bin
-
-    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=opts)
-
-    webdriver.Chrome(DRIVER)
-
-    driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=options)
+    chrome_options= webdriver.ChromeOptions()
+    chrome_options.binary_location = env.get('GOOGLE_CHROME_SHIM')
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+  
     url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
     driver.get(url)
 
