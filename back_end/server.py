@@ -9,7 +9,16 @@ app.config.from_object(__name__)
            
 CORS(app) #different origins 
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+@blueprint.after_request # blueprint can also be app~~
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
+
+    
 @app.route('/', methods = ['GET'])
+@cross_origin()
 def front():
     print('Hello Wold!')
     return 'yaya'
@@ -18,7 +27,7 @@ def front():
 @app.route('/send_url', methods=['POST', 'GET', 'OPTIONS'])
 @cross_origin()
 def ping_pong():
-     if request.method == 'POST, OPTIONS':
+     if request.method == 'POST':
          response = request.get_json()
          url = response.get('url')
          soup =scraper.setup(url)
