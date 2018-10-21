@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 values= []
 
 def setup(url):
+    #works 
     pass
     print(url)
     chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
