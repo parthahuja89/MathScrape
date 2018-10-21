@@ -38,7 +38,7 @@ def ping_pong():
          print(url)
 
 
-     return jsonify(scraper.getValues())
+     return jsonify(solo.getValues())
 
 
 if __name__ == '__main__':
