@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-import solo
+import scraper
 from flask_cors import CORS, cross_origin
 
 
@@ -21,11 +21,11 @@ def ping_pong():
      if request.method == 'POST':
          response = request.get_json()
          url = response.get('url')
-         soup =solo.setup(url)
+         soup =scraper.setup(url)
          #running scrapers 
-         solo.scrape_a(soup)
-         solo.scrape_1(soup)
-         solo.scrape_ord(soup)
+         scraper.scrape_a(soup)
+         scraper.scrape_1(soup)
+         scraper.scrape_ord(soup)
          print(solo.getValues())
          print(url)
 
