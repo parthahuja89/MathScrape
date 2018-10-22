@@ -20,6 +20,7 @@ def setup(url , css_selector):
 
     # loading for a css selector
     wait = WebDriverWait(driver, 10)
+    print('css selctor is:'+ css_selector)
     wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, css_selector)))
 
     page_source = driver.page_source
