@@ -8,7 +8,7 @@ values= []
 
 def setup(url):
     #editing this file 
-    driver = webdriver.Chrome('/app/.apt/usr/bin/google-chrome')
+    driver = webdriver.Chrome('/usr/bin/google-chrome')
     url = 'https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference'
     driver.get(url)
 
@@ -64,3 +64,6 @@ def scrape_ord(soup):
 
 def getValues():
     return values;
+
+
+    

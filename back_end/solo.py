@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 values= []
 
-def setup(url):
+def setup(url , css_selector):
     #works 
     pass
     print(url)
@@ -20,7 +20,7 @@ def setup(url):
 
     # loading for a css selector
     wait = WebDriverWait(driver, 10)
-    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "#MathJax-Element-1-Frame")))
+    wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, css_selector)))
 
     page_source = driver.page_source
 
@@ -55,9 +55,9 @@ def scrape_1(soup):
 
     return return_value
 
-def scrape_ord(soup):
+def scrape_ord(soup , tag):
     return_value = False
-    found = soup.find('script', attrs = {'id': 'MathJax-Element-1'});
+    found = soup.find('script', attrs = {'id': tag});
 
     if (found is not None):
         return_value = True

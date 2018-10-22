@@ -30,12 +30,14 @@ def ping_pong():
      if request.method == 'POST':
          response = request.get_json()
          url = response.get('url')
+         tag = reponse.get('tag') 
+         css_selector = reponse.get('css_selector')
          print(url)
-         soup =solo.setup(url)
+         soup =solo.setup(url , css_selector)
          #running scrapers 
          solo.scrape_a(soup)
          solo.scrape_1(soup)
-         solo.scrape_ord(soup)
+         solo.scrape_ord(soup,tag)
          print(solo.getValues())
          print(url)
 
