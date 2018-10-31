@@ -2,12 +2,15 @@
 
   <div id="app">
        <vue-progress-bar></vue-progress-bar>
-        <b-nav>
-    <b-nav-item active>Active</b-nav-item>
-    <b-nav-item>Link</b-nav-item>
-    <b-nav-item>Another Link</b-nav-item>
-    <b-nav-item disabled>Disabled</b-nav-item>
-     </b-nav>
+       <b-navbar toggleable type="light" variant="light">
+        <b-navbar-toggle target="nav_text_collapse"></b-navbar-toggle>
+        <b-navbar-brand>MathScrape</b-navbar-brand>
+        <b-collapse is-nav id="nav_text_collapse">
+            <b-navbar-nav class="ml-auto">
+                <b-nav-item> GitHub </b-nav-item>
+            </b-navbar-nav>
+        </b-collapse>
+    </b-navbar>
        <router-view/>
        </div>
   </template>
@@ -20,7 +23,7 @@ export default {
   mounted(){
     this.$Progress.finish()
    },
-   
+
   name: 'App' ,
 }
 </script>
