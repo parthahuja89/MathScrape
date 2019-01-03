@@ -7,7 +7,7 @@
         <b-navbar-brand>MathScrape</b-navbar-brand>
         <b-collapse is-nav id="nav_text_collapse">
             <b-navbar-nav class="ml-auto">
-                <b-nav-item> GitHub </b-nav-item>
+                <b-nav-item onclick="location.href='https://github.com/theoldclassified/BSproject'"> GitHub </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>

@@ -35,9 +35,9 @@ html,body{
   font-size: 30px;
 }
 
-   input{
+.fields{
      margin-bottom: 15px;
-   }
+}
    .alert{
      margin-left: 37.5%;
      width: 25%;

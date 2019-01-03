@@ -1,7 +1,9 @@
-<!-- Copyright 2018, Parth Ahuja, All rights reserved --> 
+<!-- Copyright 2018, Parth Ahuja, All rights reserved -->
 
+<!-- Post Scraping page with results -->
+/* eslint-disable */
 <template>
-    <div> 
+    <div>
    <b-card title="Math Scrape"
           img-alt="Image"
           img-top
@@ -11,16 +13,17 @@
     <p class="card-text">
      mathjax webscraping
       </p>
-     
-     <div id='scraped_text'> 
+
+     <div id='scraped_text'>
 
          Scraped equation:
+         x^2 - 4 ac _
      </div>
 
-     <div  id = 'sympy'> 
+     <div  id = 'sympy'>
      <!-- Handling sympy requests -->
-      
-     </div>  
+
+     </div>
   </b-card>
   </div>
 </template>
@@ -28,15 +31,14 @@
 export default {
 data(){
     return{
-     loading: true, 
+     loading: true,
      eqs: [],
-     equation: '' 
+     equation: ''
     }
 },
 created: () => {
-       console.log('welcome to scraping')
-       console.log('curren')
-       console.log(this.eqs)
-    } 
+       console.log('Completed Scraping...')
+       console.log('Equation recieved :' , this.eqs)
+    }
 }
-</script> 
+</script>

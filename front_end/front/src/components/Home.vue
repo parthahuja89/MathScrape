@@ -11,21 +11,22 @@
           style="max-width: 22rem;"
           class="mb-2">
     <p class="card-text">
-     mathjax webscraping
+     MathJax Equation Scraping
       </p>
-     <div id= 'fields'>
+
+
      <b-form-input v-if= "active"
                   v-model="url_native"
                   type="text"
                   placeholder="Enter the url"
-                  id= 'url_field'></b-form-input>
+                  class='fields'></b-form-input>
 
 
      <b-form-input v-if= "active"
                   v-model="tag"
                   type="text"
                   placeholder="Enter the tag to scrape"
-                  id = 'scrape_field'></b-form-input>
+                  class='fields'></b-form-input>
 
 
 
@@ -33,10 +34,12 @@
                   v-model="css"
                   type="text"
                   placeholder="Enter the css selector"
-                  id = 'css_field'></b-form-input>
+                  id = 'css_field'
+                  class='fields'
+                  ></b-form-input>
 
 
-</div>
+
 
 
     <b-button  variant="primary" @click ="sendURL"> Scrape</b-button>
@@ -96,7 +99,6 @@ export default {
          //make axios promise
           const instance = axios.create({
            baseURL: this.api
-
           });
           //pre-request
           instance.interceptors.response.use(response => {
@@ -115,8 +117,6 @@ export default {
           return config
           })
 
-
-
           //requests
           instance.post( '/send_url', {
            url: this.url_native,
@@ -124,13 +124,12 @@ export default {
            css_selector: this.css
            })
            .then(function(response){
-
            })
-         .catch(function(error){
+          .catch(function(error){
            console.log(error);
            })
           /*
-          * route with data
+           * route with data
            */
       }else{ //send warning
         //To proceed accept Terms and Service.
