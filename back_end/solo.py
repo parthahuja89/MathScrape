@@ -8,6 +8,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 values= []
 
+"""
+Scraping scripts using the css_selector
+"""
+
+
 def setup(url , css_selector):
     #works 
     pass
@@ -31,8 +36,7 @@ def setup(url , css_selector):
     print(soup)
     return soup;
 
-#scraping for math script
-
+#Brute forcing all possible attributes 
 def scrape_a(soup):
     return_value = False;
     found = soup.find('script', attrs={'type':'math/tex; mode=display'});

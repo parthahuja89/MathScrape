@@ -22,14 +22,16 @@
      <!-- populate this with the scraped equation NON PARSED VERSION ONLY --> 
       <b-form-textarea rows="3" v-model="text" max-rows="100" id='flood_eq'  placeholder="Scraped Equation" />
       <b-button id='parse_to_latex' variant="info" @click ="parseToLatex"> Parse to LATEX </b-button>
-
+      
+      <!-- Parsed Latex --> 
   <div id='katex_1'></div>
   </b-card>
   </div>
 </template>
 <script>
 import axios from 'axios';
-import jQuery from 'jQuery';
+//changing jQuery --> jquery (Depracted)
+import jQuery from 'jquery';
 import katex from 'katex';
 export default {
 data(){

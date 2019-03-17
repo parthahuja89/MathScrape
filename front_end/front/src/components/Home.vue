@@ -111,7 +111,6 @@ Server location: mathscrape.herokuapp.com/
 --> 
 <script>
 import axios from 'axios';
-
 export default {
   data() {
       return{
@@ -132,7 +131,6 @@ export default {
       //PROMISING
       console.log('trying to connect to server');
       const path = this.api
-
       if(this.status == 'accepted'){
          //make axios promise
           const instance = axios.create({
@@ -156,7 +154,6 @@ export default {
           this.$Progress.start()
           return config
           })
-
           //requests
           instance.post( '/send_url', {
            url: this.url_native,
@@ -175,7 +172,6 @@ export default {
         //To proceed accept Terms and Service.
         this.showDismissibleAlert = true
       }
-
     },
     debug(){
       this.$router.push({
@@ -183,7 +179,6 @@ export default {
                  });
     }
   },
-
  };
 </script>
 
