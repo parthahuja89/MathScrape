@@ -3,6 +3,29 @@
 /* eslint-disable */
 <template>
 <div>
+<div>
+  <div id="app">
+    <!-- NavBar --> 
+       <vue-progress-bar></vue-progress-bar>
+       <b-navbar toggleable type="light" variant="light">
+        <b-navbar-toggle target="nav_text_collapse"></b-navbar-toggle>
+        <b-navbar-brand>MathScrape</b-navbar-brand>
+        <b-collapse is-nav id="nav_text_collapse">
+            <b-navbar-nav class="ml-auto">
+                <b-nav-item onclick="location.href='https://github.com/theoldclassified/BSproject'"> GitHub </b-nav-item>
+            </b-navbar-nav>
+        </b-collapse>
+    </b-navbar>
+       
+       </div>
+       </div>
+  <div id  = 'vue_text' style = 'position:absolute;
+     bottom:0;
+     left:0;
+     color: white
+     '>
+   Built with <img src='./logo.png' style = 'width: 30px; height:30px;'/>
+  </div>
   <!-- Layout -->
    <b-card title="Math Scrape"
           img-alt="Image"
@@ -66,13 +89,29 @@
           class = "alert"
           >
    Accept terms of service to continue
- </b-alert>
-  </div>
 
+ </b-alert>
+
+ <!-- adding an example -->
+  <b-alert id="suggestion" show dismissible >
+    Tips <br/> 
+    Try scraping the following url!
+    <div id ='suggestion_text'>
+    URL:<b>https://www.mathjax.org/#samples</b><br/> 
+    Tag: <b>MathJax-Element-2</b><br/>
+    Selector: <b>#MathJax-Element-1-Frame</b> <br/>
+  </div>
+  </b-alert> 
+
+  </div>
 </template>
 
+<!-- RESTFUL SCRIPTS 
+Server location: mathscrape.herokuapp.com/
+--> 
 <script>
 import axios from 'axios';
+
 export default {
   data() {
       return{
@@ -90,7 +129,6 @@ export default {
   },
   methods: {
     sendURL(event){
-
       //PROMISING
       console.log('trying to connect to server');
       const path = this.api
@@ -103,14 +141,16 @@ export default {
           //pre-request
           instance.interceptors.response.use(response => {
           this.$Progress.finish()
-           console.log(response);
+           console.log('Response on homepage:' , response);
+           
            this.$router.push({
-                 path: '/scraped',
-                 params: { eqs: response }
-                 });
+                 path: '/Scraped',
+                 name: 'Scraped',
+                 params : { eqs: response}
+                 });   
+                 console.log('Checking if query is passing: ', this.$route.params.eqs)
              return response
             })
-
           //post request
           instance.interceptors.request.use(config => {
           this.$Progress.start()
@@ -146,3 +186,7 @@ export default {
 
  };
 </script>
+
+<style lang='scss'>
+@import '../assets/css/style.css'
+</style>

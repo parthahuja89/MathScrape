@@ -1,20 +1,11 @@
-<template>
-
+<template> 
+<div>
   <div id="app">
-       <vue-progress-bar></vue-progress-bar>
-       <b-navbar toggleable type="light" variant="light">
-        <b-navbar-toggle target="nav_text_collapse"></b-navbar-toggle>
-        <b-navbar-brand>MathScrape</b-navbar-brand>
-        <b-collapse is-nav id="nav_text_collapse">
-            <b-navbar-nav class="ml-auto">
-                <b-nav-item onclick="location.href='https://github.com/theoldclassified/BSproject'"> GitHub </b-nav-item>
-            </b-navbar-nav>
-        </b-collapse>
-    </b-navbar>
+       
        <router-view/>
        </div>
+       </div>
   </template>
-
 <script>
 export default {
   created() {
@@ -27,7 +18,3 @@ export default {
   name: 'App' ,
 }
 </script>
-
-<style lang='scss'>
-@import 'assets/css/style.css'
-</style>

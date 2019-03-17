@@ -24,7 +24,7 @@ def front():
     print('Hello Wold!')
     return 'yaya'
 
-#reqquests 
+#scraping requests 
 @app.route('/send_url', methods=['POST', 'OPTIONS'])
 def ping_pong():
      if request.method == 'POST':

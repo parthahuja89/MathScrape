@@ -39,10 +39,29 @@ html,body{
      margin-bottom: 15px;
 }
    .alert{
-     margin-left: 37.5%;
+     margin-left: 39.5%;
      width: 25%;
    }
 
    #nav-items_{
      align-content: flex-end;
    }
+#suggestion{
+  
+  position: relative;  
+  margin-top: -11%; 
+  right: -34%;
+  top: 2; 
+}
+#suggestion_text{
+  align: left;
+}
+#flood_eq{
+  margin-top: 20%;
+}
+#send_to_calc{
+  margin-top: 30%;
+}
+button#parse_to_latex{
+  margin-top: 10%;
+}

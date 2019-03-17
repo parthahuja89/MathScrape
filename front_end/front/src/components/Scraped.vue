@@ -17,28 +17,56 @@
      <div id='scraped_text'>
 
          Scraped equation:
-         x^2 - 4 ac _
-     </div>
-
-     <div  id = 'sympy'>
-     <!-- Handling sympy requests -->
 
      </div>
+     <!-- populate this with the scraped equation NON PARSED VERSION ONLY --> 
+      <b-form-textarea rows="3" v-model="text" max-rows="100" id='flood_eq'  placeholder="Scraped Equation" />
+      <b-button id='parse_to_latex' variant="info" @click ="parseToLatex"> Parse to LATEX </b-button>
+
+  <div id='katex_1'></div>
   </b-card>
   </div>
 </template>
 <script>
+import axios from 'axios';
+import jQuery from 'jQuery';
+import katex from 'katex';
 export default {
 data(){
     return{
+     text: '',
      loading: true,
-     eqs: [],
-     equation: ''
+     equation: '',
+     eqs: Object,
     }
 },
-created: () => {
-       console.log('Completed Scraping...')
-       console.log('Equation recieved :' , this.eqs)
+//Lesson learnt: Don't use arrows if you want access to 'this'
+created:function() {
+       console.log('Checking if query is passing: ', this.$route.params.eqs)
+},
+mounted:function(){
+    console.log('Mounted...')
+    console.log('Checking if query is passing: ', this.$route.params.eqs)
+    jQuery('#flood_eq').val(this.$route.params.eqs["data"].slice(-1).pop())
+     
+},
+methods:{
+    parseToLatex(){
+        //Rendering the latex text 
+        console.log('Rendering LaTeX')
+        katex.render(this.$route.params.eqs["data"].slice(-1).pop(), katex_1, {
+            displayMode: true,
+         });
+    },
+    routeToCalculator(){
+    
     }
 }
+}
 </script>
+<style lang='scss'>
+@import '../assets/css/style.css'
+</style>
+<style>
+  @import "../../node_modules/katex/dist/katex.min.css";
+</style> 
