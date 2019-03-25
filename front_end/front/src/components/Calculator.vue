@@ -4,9 +4,11 @@
 <!-- Card container --> 
 <b-card title="Calculator"
         img-alt="Image"
-        img-top
-        tag="article"
-        class="mb-2">
+          img-top
+          tag="article"
+          style="max-width: 20rem;"
+          class="mb-2"
+        >
 <p class="card-text">
     </p>
 
