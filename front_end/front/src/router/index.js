@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Scraped from '@/components/Scraped'
 import Landing_Page from '@/components/Landing_Page'
+import Calculator from '@/components/Calculator'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -22,6 +23,11 @@ export default new Router({
       path: '/',
       name: 'Landing_Page',
       component : Landing_Page,
+    },
+    {
+      path:'/calculator',
+      name: 'Calculator',
+      component: Calculator
     }
   ],
 

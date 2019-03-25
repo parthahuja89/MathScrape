@@ -2,6 +2,7 @@
 
 /* eslint-disable */
 <template>
+<!-- Scraping page --> 
 <div>
 <div>
   <div id="app">
@@ -60,11 +61,6 @@
                   id = 'css_field'
                   class='fields'
                   ></b-form-input>
-
-
-
-
-
     <b-button  variant="primary" @click ="sendURL"> Scrape</b-button>
 
   </b-card>
