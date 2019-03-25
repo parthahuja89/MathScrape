@@ -1,4 +1,4 @@
-# BSproject
+# MathScrape
 
 mathscrape.firebaseapp.com
 
