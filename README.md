@@ -1,6 +1,6 @@
 # MathScrape
 
-mathscrape.firebaseapp.com
+https://mathscrape.firebaseapp.com
 
 ## Scraping Usage 
 1) Choose a url (standard math-jax integration required) ex. `https://www.mathjax.org/#samples`
