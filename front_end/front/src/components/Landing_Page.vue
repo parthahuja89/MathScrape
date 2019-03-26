@@ -12,7 +12,6 @@ and Grapher.
 <b-button  id='landing_button_1' variant="info" @click ="routeToScraper"> Scraper</b-button>
 <b-button  id='landing_button_2' variant="info" @click ="routeToCalculator"> Calculator</b-button>
 </div> 
-   <div id = 'usage'> Image by Francesco Ungaro </div> 
 </div>
 </template>
 <!-- light scripts --> 

@@ -10,7 +10,8 @@
        <vue-progress-bar></vue-progress-bar>
        <b-navbar toggleable type="light" variant="light">
         <b-navbar-toggle target="nav_text_collapse"></b-navbar-toggle>
-        <b-navbar-brand>MathScrape</b-navbar-brand>
+        <b-navbar-brand>MathScrape
+        </b-navbar-brand>
         <b-collapse is-nav id="nav_text_collapse">
             <b-navbar-nav class="ml-auto">
                 <b-nav-item onclick="location.href='https://github.com/theoldclassified/BSproject'"> GitHub </b-nav-item>
@@ -34,11 +35,10 @@
           tag="article"
           style="max-width: 22rem;"
           class="mb-2">
-    <p class="card-text">
-     MathJax Equation Scraping
-      </p>
-
-
+    <p class="card-text" style="padding: 1em;">
+     MathJax Equation Scraping 
+     <b-button v-b-modal.modal1>Example</b-button>
+    </p>
      <b-form-input v-if= "active"
                   v-model="url_native"
                   type="text"
@@ -88,16 +88,14 @@
 
  </b-alert>
 
- <!-- adding an example -->
-  <b-alert id="suggestion" show dismissible >
-    Tips <br/> 
-    Try scraping the following url!
-    <div id ='suggestion_text'>
-    URL:<b>https://www.mathjax.org/#samples</b><br/> 
-    Tag: <b>MathJax-Element-2</b><br/>
-    Selector: <b>#MathJax-Element-1-Frame</b> <br/>
-  </div>
-  </b-alert> 
+<!-- Suggestion for user Modal -->
+  <b-modal id="modal1" title="Try scraping with following attributes">
+    <p class="my-4">
+      1. URL:https://www.mathjax.org/#samples <br/>
+      2. Tag: MathJax-Element-2 <br/>
+      3. Selector: #MathJax-Element-1-Frame <br/> 
+    </p>
+  </b-modal>
 
   </div>
 </template>
