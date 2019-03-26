@@ -9,5 +9,4 @@ mathscrape.firebaseapp.com
 4) Check console if link is invalid
 
 ## Images 
-![alt text](https://i.ibb.co/4stJ9C1/Screenshot-20190326-103504-Chrome.jpg)
 <img src="https://i.ibb.co/4stJ9C1/Screenshot-20190326-103504-Chrome.jpg" width="350" alt="accessibility text">
