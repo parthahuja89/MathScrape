@@ -21,8 +21,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Landing_Page',
-      component : Landing_Page,
+      name: 'Scraped',
+      component : Scraped,
     },
     {
       path:'/calculator',
