@@ -21,8 +21,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Scraped',
-      component : Scraped,
+      name: 'Home',
+      component : Home,
     },
     {
       path:'/calculator',

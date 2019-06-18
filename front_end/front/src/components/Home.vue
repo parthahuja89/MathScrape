@@ -21,13 +21,6 @@
        
        </div>
        </div>
-  <div id  = 'vue_text' style = 'position:absolute;
-     bottom:0;
-     left:0;
-     color: white
-     '>
-   Built with <img src='./logo.png' style = 'width: 30px; height:30px;'/>
-  </div>
   <!-- Layout -->
    <b-card title="Math Scrape"
           img-alt="Image"
