@@ -30,7 +30,7 @@
           class="mb-2">
     <p class="card-text" style="padding: 1em;">
      MathJax Equation Scraping 
-     <b-button v-b-modal.modal1>Example</b-button>
+     <b-button v-b-modal.modal1>Help/Example</b-button>
     </p>
      <b-form-input v-if= "active"
                   v-model="url_native"
@@ -84,8 +84,9 @@
 <!-- Suggestion for user Modal -->
   <b-modal id="modal1" title="Try scraping with following attributes">
     <p class="my-4">
-      1. URL:https://www.mathjax.org/#samples <br/>
-      2. Tag: MathJax-Element-2 <br/>
+      Note: You may have to make >1 request if gunicorn server is sleeping. <br/> 
+      1. URL: https://www.tuhh.de/MathJax/test/sample-tex.html <br/>
+      2. Tag: MathJax-Element-3 <br/>
       3. Selector: #MathJax-Element-1-Frame <br/> 
     </p>
   </b-modal>
