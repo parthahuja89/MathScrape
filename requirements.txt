@@ -2,7 +2,7 @@ absl-py==0.3.0
 astor==0.7.1
 beautifulsoup4==4.6.3
 bs4==0.0.1
-certifi==2018.4.16
+certifi==2022.12.7
 click==6.7
 cycler==0.10.0
 Flask==1.0.2
